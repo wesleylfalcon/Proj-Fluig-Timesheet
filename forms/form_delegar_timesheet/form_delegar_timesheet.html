@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		
+		<!-- .js -->
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>	
+		<script type="text/javascript" src="js/zoom.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
+		
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<input type="hidden" name="formMode" id="formMode" />
+							
+				<div class="row page-header">
+					<div class="col-md-12 divTitulo">
+						<h1 class="titulo">Delegar apontamento - Timesheet</h1>
+						<img src="img/logo_teste.png" class="logo" alt="Logo Cliente">
+					</div>
+				</div>
+				
+				<!-- ###### Dados da Solicitação ###### -->
+				<div class="panel-group" id="painelCabecalho">
+	                <div class="panel-heading">
+	                    <h4 class="panel-title">
+	                    	<i class="flaticon flaticon-assignment-ind icon-md" aria-hidden="true"></i>	                    
+	                        <a data-toggle="collapse" data-parent="#accordion" href="#divCabecalho">
+	                            Dados do responsável
+	                        </a>
+	                    </h4>
+	                </div>
+	                <div id="divCabecalho" class="panel-collapse collapse in">
+	                    <div class="panel-body">
+	                        <div class="row">                                                   
+	                            <div class="col-md-8 form-group">
+	                                <label for="nmResponsavel">Responsável<span class="required text-danger"><strong>*</strong></span></label>
+	                                <input type="zoom" name="nmResponsavel" id="nmResponsavel"							   
+										data-zoom="{'displayKey':'nome', 
+													'datasetId':'ds_ts_responsaveis', 
+													'maximumSelectionLength':'1',
+													'placeholder':'Selecionar projeto',
+													'filterValues': 'active,true',
+													'fields':[{'field':'nome', 'label':'Nome','standard':true},
+															  {'field':'matricula', 'label':'ID','visible':'false'}]
+													}" 
+								  	/> 
+	                                <input type="hidden" name="matrResponsavel" id="matrResponsavel" />	                                
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtAbertura">Data</label>
+	                                <input type="text" name="dtAbertura" id="dtAbertura" class="form-control" mask="00/00/0000" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="hrAbertura">Hora</label>
+	                                <input type="text" name="hrAbertura" id="hrAbertura" class="form-control" readonly />
+	                            </div>
+                            </div>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            <!-- ###### Delegar ###### -->
+				<div class="panel-group" id="painelDelegacao">
+	                <div class="panel-heading">
+	                    <h4 class="panel-title">
+	                    	<i class="flaticon flaticon-compare-arrows icon-md" aria-hidden="true"></i>	                    
+	                        <a data-toggle="collapse" data-parent="#accordion" href="#divDelegacao">
+	                            Delegar
+	                        </a>
+	                    </h4>
+	                </div>
+	                <div id="divDelegacao" class="panel-collapse collapse in">
+	                    <div class="panel-body"> 
+	                    	<div class="form-group col-md-12">
+								<table tablename="tblDelegacao" class="table table-bordered" noaddbutton="true" nodeletebutton="true" id="tblDelegacao">
+				                   <thead>
+										<tr>
+											<th style="width:5%" class="text-center warning"></th>
+											<th style="text-align: left" class="text-center warning">Colaboradores</th>
+										</tr>
+									</thead>
+				                   <tbody>
+				                       <tr>
+					                       <td>
+												<div>
+													<span class="fluigicon fluigicon-trash fluigicon-md fs-cursor-pointer removeDelegacao" id="removeDelegacao" onclick="delTblDelegacao(this)" title="Remover"></span>
+												</div>													
+										   </td>
+				                           <td>
+				                           		<div class="row">
+				                           			<div class="form-group col-md-12">
+	                       						    	<label for="nmColaborador">Nome<span class="required text-danger"><strong>*</strong></span></label>
+						                                <input type="zoom" name="nmColaborador" id="nmColaborador"							   
+															data-zoom="{'displayKey':'nome', 
+																		'datasetId':'ds_ts_colaboradores', 
+																		'maximumSelectionLength':'1',
+																		'placeholder':'Selecionar colaborador',
+																		'filterValues': 'active,true',
+																		'fields':[{'field':'nome', 'label':'Nome','standard':true},
+																				  {'field':'matricula', 'label':'ID','visible':'false'},
+																				  {'field':'email', 'label':'Email','visible':'false'}]
+																		}" 
+													  	/> 	
+													  	<input type="hidden" name="matrColaborador" id="matrColaborador" />	
+													  	<input type="hidden" name="codRMColaborador" id="codRMColaborador" />	
+												  	</div>								
+										        </div>
+		                                   </td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="row">
+									<div class="form-group col-md-10">
+										<button type="button" class="btn btn-warning btn-sm" name="adiDelegacao"
+											id="adiDelegacao" onclick="addTblDelegacao('tblDelegacao')">Adicionar</button>
+									</div>
+								</div>
+							</div>
+	                    </div>
+	                </div>
+	            </div>
+	            
+			</form>
+		</div>
+	</body>
+</html>

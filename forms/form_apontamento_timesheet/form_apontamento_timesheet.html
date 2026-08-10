@@ -1,0 +1,194 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		
+		<!-- .js -->
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>	
+		<script type="text/javascript" src="js/custom.js"></script>
+		
+		<!-- bibliotecas -->	
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+		
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+				<input type="hidden" name="matrSolicitante" id="matrSolicitante" />
+				<input type="hidden" name="codRM" id="codRM" />
+				<input type="hidden" name="atividade" id="atividade" />
+				<input type="hidden" name="formMode" id="formMode" />
+				
+				<input type="hidden" name="statusIntegracaoRM" id="statusIntegracaoRM" />
+				<input type="hidden" name="aprovadores" id="aprovadores" />
+				<input type="hidden" name="gestorContrato" id="gestorContrato" />
+				
+				<div id="aviso">
+					<div class="alert alert-info alert-dismissible" role="alert">
+					    <h2 class="title">Aviso</h2>
+					    <p class="message">Para efetuar um apontamento, favor utilizar o Timesheet!</p>
+					</div>
+				</div>
+				
+				<div id="formulario">
+					<div class="row page-header">
+						<div class="col-md-12 divTitulo">
+							<h1 class="titulo">Solicitação de Apontamento - Timesheet</h1>
+							<img src="img/logo_teste.png" class="logo" alt="Logo Cliente">
+						</div>
+					</div>
+					
+					<!-- ###### Dados da Solicitação ###### -->
+					<div class="panel-group" id="painelCabecalho">
+		                <div class="panel-heading">
+		                    <h4 class="panel-title">
+		                    	<i class="flaticon flaticon-assignment-ind icon-md" aria-hidden="true"></i>	                    
+		                        <a data-toggle="collapse" data-parent="#accordion" href="#divCabecalho">
+		                            Dados da Solicitação
+		                        </a>
+		                    </h4>
+		                </div>
+		                <div id="divCabecalho" class="panel-collapse collapse in">
+		                    <div class="panel-body">
+		                        <div class="row">                                                   
+		                            <div class="col-md-4 form-group">
+		                                <label for="nmSolicitante">Solicitante</label>
+		                                <input type="text" name="nmSolicitante" id="nmSolicitante" class="form-control" readonly />
+		                            </div>
+		                            
+		                            <div class="col-md-2 form-group">
+		                                <label for="dtAbertura">Data</label>
+		                                <input type="text" name="dtAbertura" id="dtAbertura" class="form-control" mask="00/00/0000" readonly />
+		                            </div>
+		                            
+		                            <div class="col-md-2 form-group">
+		                                <label for="hrAbertura">Hora</label>
+		                                <input type="text" name="hrAbertura" id="hrAbertura" class="form-control" readonly />
+		                            </div>
+		                            
+		                            <div class="col-md-2 form-group">
+		                                <label for="nrSolicitacao">Nº Solicitação</label>
+		                                <input type="text" name="nrSolicitacao" id="nrSolicitacao" class="form-control" readonly />
+		                            </div>
+		                            
+		                            <div class="col-md-2 form-group">
+		                                <label for="dtCompetencia">Competência</label>
+		                                <input type="text" name="dtCompetencia" id="dtCompetencia" class="form-control" mask="00/0000" readonly />
+		                            </div>
+	                            </div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <!-- ###### Apontamento ###### -->
+					<div class="panel-group" id="painelApontamento">
+		                <div class="panel-heading">
+		                    <h4 class="panel-title">
+		                    	<i class="flaticon flaticon-file-clock icon-md" aria-hidden="true"></i>	                    
+		                        <a data-toggle="collapse" data-parent="#accordion" href="#divApontamento">
+		                            Apontamento
+		                        </a>
+		                    </h4>
+		                </div>
+		                <div id="divApontamento" class="panel-collapse collapse in">
+		                    <div class="panel-body">     
+	                            <div class="row">                                                   
+		                            <div class="col-md-6 form-group">
+		                                <label for="nmProjeto">Projeto<span class="required text-danger"><strong>*</strong></span></label>
+		                                <input type="text" name="nmProjeto" id="nmProjeto" class="form-control" readonly />
+									  	<input type="hidden" name="idProjeto" id="idProjeto" />
+									  	<input type="hidden" name="codProjeto" id="codProjeto" />
+		                            </div>
+		                            
+		                            <div class="col-md-6 form-group">
+		                                <label for="nmTarefa">Tarefa<span class="required text-danger"><strong>*</strong></span></label>
+		                                <input type="text" name="nmTarefa" id="nmTarefa" class="form-control" readonly />
+									  	<input type="hidden" name="codTarefa" id="codTarefa" />
+									  	<input type="hidden" name="idISM" id="idISM" />
+									  	<input type="hidden" name="idTRF" id="idTRF" />
+		                            </div>	
+	                          	</div>  
+	                          	
+	                            <div class="row">
+	  						    	<div class="form-group col-md-3">
+									    <label for="dtApontamento">Data</label>								
+									    <div class="input-group">
+									        <input type="text" class="form-control" name="dtApontamento" id="dtApontamento" mask="00/00/0000" readonly />
+									    </div>
+									</div>	
+									
+						        	<div class="form-group col-md-2">
+							       	 	<label class="control-label" for="hrApontamento">Horas<span class="required text-danger"><strong>*</strong></span></label>
+										<input type="text" class="form-control" name="hrApontamento" id="hrApontamento" placeholder="00:00" />
+									</div>										
+						        </div>
+						        
+						        <div class="row">  
+				                    <div class="form-group col-md-12">
+			                       		<label for="observacao">Observação</label>
+										<textarea rows="4" class="form-control" name="observacao" id="observacao"></textarea>
+									</div>
+			                    </div>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		            <!-- ###### Aprovações ###### -->
+					<div class="panel-group" id="painelAprovacoes">
+		                <div class="panel-heading">
+		                    <h4 class="panel-title">
+		                    	<i class="flaticon flaticon-class-check icon-md" aria-hidden="true"></i>	                    
+		                        <a data-toggle="collapse" data-parent="#accordion" href="#divAprovacoes">
+		                            Aprovação
+		                        </a>
+		                    </h4>
+		                </div>
+		                <div id="divAprovacoes" class="panel-collapse collapse in">
+		                    <div class="panel-body">           	
+		                    	<div id="aprovGestor">
+		                    		<h4 class="subtitulo">Gestor</h4><hr>
+			                    	<div class="row">                                                   
+			                            <div class="form-group col-md-5">
+								       	 	<label class="control-label" for="nmAprovGestor">Aprovador</label>
+											<input type="text" class="form-control" name="nmAprovGestor" id="nmAprovGestor" readonly />
+										</div>
+										
+										<div class="form-group col-md-2">
+								       	 	<label class="control-label" for="dtAprovGestor">Data</label>
+											<input type="text" class="form-control" name="dtAprovGestor" id="dtAprovGestor" readonly />
+										</div>
+										
+										<div class="form-group col-md-2">
+								       	 	<label class="control-label" for="hrAprovGestor">Hora</label>
+											<input type="text" class="form-control" name="hrAprovGestor" id="hrAprovGestor" readonly />
+										</div>
+										
+										<div class="col-md-3 form-group">
+			                                <label for="statusAprovGestor">Status</label>
+			                                <input type="text" name="statusAprovGestor" id="statusAprovGestor" class="form-control" readonly />
+			                            </div>
+	                           		</div>
+	                           		
+	                           		<div class="row justificativas">  
+					                    <div class="form-group col-md-12">
+				                       		<label for="justificativaGestor">Justificativa</label>
+											<textarea rows="4" class="form-control" name="justificativaGestor" id="justificativaGestor"></textarea>
+										</div>
+				                    </div>
+			                    </div>
+		                    </div>
+	                    </div>
+	               	</div>
+               	</div>
+			</form>
+		</div>
+	</body>
+</html>

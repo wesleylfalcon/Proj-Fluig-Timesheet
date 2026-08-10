@@ -1,0 +1,176 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		
+		<!-- .js -->
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>	
+		
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+			
+				<div class="row page-header">
+					<div class="col-md-12 divTitulo">
+						<h1 class="titulo">Cadastro datas de competência</h1>
+						<img src="img/logo_teste.png" class="logo" alt="Logo Cliente">
+					</div>
+				</div>
+				
+				<!-- ###### Datas ###### -->
+				<div class="panel-group" id="painelDatas">
+	                <div class="panel-heading">
+	                    <h4 class="panel-title">
+	                    	<i class="flaticon flaticon-assignment-ind icon-md" aria-hidden="true"></i>	                    
+	                        <a data-toggle="collapse" data-parent="#accordion" href="#divDatas">
+	                            Datas
+	                        </a>
+	                    </h4>
+	                </div>
+	                <div id="divDatas" class="panel-collapse collapse in">
+	                    <div class="panel-body">
+	                        <div class="row">                                                   
+	                            <div class="col-md-2 form-group">
+	                                <label for="anoCompetencia">Ano</label>
+	                                <input type="text" name="anoCompetencia" id="anoCompetencia" class="form-control" readonly />
+	                            </div>
+                            </div>
+                            
+                            <div class="row"> 	
+                            	<div class="col-md-2 form-group">
+	                                <label for="dtJaneiro">Janeiro</label>
+	                                <div class="input-group date" id="divDtJaneiro">
+								        <input type="text" class="form-control" name="dtJaneiro" id="dtJaneiro" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div> 
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtFevereiro">Fevereiro</label>
+	                                <div class="input-group date" id="divDtFevereiro">
+								        <input type="text" class="form-control" name="dtFevereiro" id="dtFevereiro" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtMarco">Março</label>
+	                                <div class="input-group date" id="divDtMarco">
+								        <input type="text" class="form-control" name="dtMarco" id="dtMarco" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtAbril">Abril</label>
+	                                <div class="input-group date" id="divDtAbril">
+								        <input type="text" class="form-control" name="dtAbril" id="dtAbril" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtMaio">Maio</label>
+	                                <div class="input-group date" id="divDtMaio">
+								        <input type="text" class="form-control" name="dtMaio" id="dtMaio" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtJunho">Junho</label>
+	                                <div class="input-group date" id="divDtJunho">
+								        <input type="text" class="form-control" name="dtJunho" id="dtJunho" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+                            </div>
+                            
+                            <div class="row"> 	
+                            	<div class="col-md-2 form-group">
+	                                <label for="dtJulho">Julho</label>
+	                                <div class="input-group date" id="divDtJulho">
+								        <input type="text" class="form-control" name="dtJulho" id="dtJulho" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div> 
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtAgosto">Agosto</label>
+	                                <div class="input-group date" id="divDtAgosto">
+								        <input type="text" class="form-control" name="dtAgosto" id="dtAgosto" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtSetembro">Setembro</label>
+	                                <div class="input-group date" id="divDtSetembro">
+								        <input type="text" class="form-control" name="dtSetembro" id="dtSetembro" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtOutubro">Outubro</label>
+	                                <div class="input-group date" id="divDtOutubro">
+								        <input type="text" class="form-control" name="dtOutubro" id="dtOutubro" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtNovembro">Novembro</label>
+	                                <div class="input-group date" id="divDtNovembro">
+								        <input type="text" class="form-control" name="dtNovembro" id="dtNovembro" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtDezembro">Dezembro</label>
+	                                <div class="input-group date" id="divDtDezembro">
+								        <input type="text" class="form-control" name="dtDezembro" id="dtDezembro" placeholder="00/00/0000">
+								        <span class="input-group-addon">
+								            <span class="fluigicon fluigicon-calendar"></span>
+								        </span>
+								    </div>
+	                            </div>
+                            </div>
+	                    </div>
+	                </div>
+	            </div>
+				
+			</form>
+		</div>
+	</body>
+</html>

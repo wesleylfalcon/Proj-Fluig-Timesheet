@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		
+		<!-- .js -->
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>	
+		<script type="text/javascript" src="js/zoom.js"></script>
+		
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+										
+				<div class="row page-header">
+					<div class="col-md-12 divTitulo">
+						<h1 class="titulo">Cadastro de Apontamento Automático - Timesheet</h1>
+						<img src="img/logo_teste.png" class="logo" alt="Logo Cliente">
+					</div>
+				</div>
+				
+				<!-- ###### Colaborador ###### -->
+				<div class="panel-group" id="painelColaborador">
+	                <div class="panel-heading">
+	                    <h4 class="panel-title">
+	                    	<i class="flaticon flaticon-assignment-ind icon-md" aria-hidden="true"></i>	                    
+	                        <a data-toggle="collapse" data-parent="#accordion" href="#divColaborador">
+	                            Colaborador
+	                        </a>
+	                    </h4>
+	                </div>
+	                <div id="divColaborador" class="panel-collapse collapse in">
+	                    <div class="panel-body">
+	                        <div class="row">  	                                                                             
+	                            <div class="col-md-12 form-group">
+	                                <label for="nmUsuario">Usuário<span class="required text-danger"><strong>*</strong></span></label>
+	                                <input type="zoom" name="nmUsuario" id="nmUsuario"							   
+										data-zoom="{'displayKey':'nome', 
+													'datasetId':'ds_ts_colaboradores', 
+													'maximumSelectionLength':'1',
+													'placeholder':'Selecionar usuário',
+													'filterValues': 'active,true',
+													'fields':[{'field':'nome', 'label':'Nome','standard':true},
+															  {'field':'matricula', 'label':'ID','visible':'false'}]
+													}" 
+								  	/> 
+	                                <input type="hidden" name="matrUsuario" id="matrUsuario" />	                                
+	                            </div>
+                            </div>
+	                    </div>
+	                </div>
+	            </div>	 
+				        
+			</form>
+		</div>
+	</body>
+</html>

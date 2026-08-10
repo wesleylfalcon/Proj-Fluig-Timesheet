@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		
+		<!-- .js -->
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>	
+		
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+										
+				<div class="row page-header">
+					<div class="col-md-12 divTitulo">
+						<h1 class="titulo">Controle de Aprovação Total - Timesheet</h1>
+						<img src="img/logo_teste.png" class="logo" alt="Logo Cliente">
+					</div>
+				</div>
+				
+				<!-- ###### Dados controle ###### -->
+				<div class="panel-group" id="painelControle">
+	                <div class="panel-heading">
+	                    <h4 class="panel-title">
+	                    	<i class="flaticon flaticon-assignment-ind icon-md" aria-hidden="true"></i>	                    
+	                        <a data-toggle="collapse" data-parent="#accordion" href="#divControle">
+	                            Dados controle
+	                        </a>
+	                    </h4>
+	                </div>
+	                <div id="divControle" class="panel-collapse collapse in">
+	                    <div class="panel-body">
+	                        <div class="row">                                                   
+	                            <div class="col-md-3 form-group">
+	                                <label for="idControle">ID controle</label>
+	                                <input type="text" name="idControle" id="idControle" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="status">Status</label>
+	                                <input type="text" name="status" id="status" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="total">Total</label>
+	                                <input type="text" name="total" id="total" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="processados">Processados</label>
+	                                <input type="text" name="processados" id="processados" class="form-control" readonly />
+	                            </div>
+                            </div>
+                            
+                            <div class="row"> 	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="sucesso">Sucesso</label>
+	                                <input type="text" name="sucesso" id="sucesso" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="erro">Erro</label>
+	                                <input type="text" name="erro" id="erro" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="dataInicio">Data início</label>
+	                                <input type="text" name="dataInicio" id="dataInicio" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-3 form-group">
+	                                <label for="dataFim">Data fim</label>
+	                                <input type="text" name="dataFim" id="dataFim" class="form-control" readonly />
+	                            </div>
+                            </div>
+                            
+                            <div class="row">  
+			                    <div class="form-group col-md-12">
+		                       		<label for="filtrosJson">Filtros</label>
+									<textarea rows="4" class="form-control" name="filtrosJson" id="filtrosJson" readonly></textarea>
+								</div>
+		                    </div>
+							
+							<div class="row">
+								<div class="col-md-2 form-group">
+							        <label for="lockProcessamento">Lock processamento</label>						
+							        <input type="text" name="lockProcessamento" id="lockProcessamento" class="form-control" readonly />
+							    </div>
+							    
+							    <div class="col-md-2 form-group">
+							        <label for="tipoRegistro">Tipo registro</label>						
+							        <input type="text" name="tipoRegistro" id="tipoRegistro" class="form-control" readonly />
+							    </div>
+							
+							    <div class="col-md-2 form-group">
+							        <label for="controlePaiId">Controle Pai ID</label>						
+							        <input type="text" name="controlePaiId" id="controlePaiId" class="form-control" readonly />
+							    </div>
+							
+							    <div class="col-md-2 form-group">
+							        <label for="worker">Worker</label>						
+							        <input type="text" name="worker" id="worker" class="form-control" readonly />
+							    </div>
+							
+							    <div class="col-md-2 form-group">
+							        <label for="vlrOffset">Offset</label>						
+							        <input type="text" name="vlrOffset" id="vlrOffset" class="form-control" readonly />
+							    </div>
+							    
+							    <div class="col-md-2 form-group">
+							        <label for="vlrLimit">Limit</label>						
+							        <input type="text" name="vlrLimit" id="vlrLimit" class="form-control" readonly />
+							    </div>
+							</div>
+							
+							<div class="row">
+							    <div class="col-md-12 form-group">
+							        <label for="solicitacoesJson">Solicitações</label>						
+							        <textarea rows="10" class="form-control" name="solicitacoesJson" id="solicitacoesJson" readonly></textarea>
+							    </div>
+						    </div>
+	                    </div>
+	                </div>
+	            </div>	
+	            
+	            <!-- ###### Erros detalhados ###### -->
+				<div class="panel-group" id="painelErros">				
+				    <div class="panel-heading">
+				        <h4 class="panel-title">
+				            <i class="flaticon flaticon-global-error icon-md" aria-hidden="true"></i>				
+				            <a data-toggle="collapse" data-parent="#accordion" href="#divErros">Erros detalhados</a>
+				        </h4>
+				    </div>
+				
+				    <div id="divErros" class="panel-collapse collapse in">				
+				        <div class="panel-body">				
+				            <div class="form-group">
+				                <label for="errosDetalhados">Logs de erro</label>				
+				                <textarea rows="5" class="form-control" name="errosDetalhados" id="errosDetalhados" readonly></textarea>
+				            </div>				
+				        </div>				
+				    </div>				
+				</div>    
+				        
+			</form>
+		</div>
+	</body>
+</html>

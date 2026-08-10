@@ -1,0 +1,86 @@
+.divTitulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.titulo {
+    text-align: center;
+    flex-grow: 0;
+    margin: 0;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.panel-heading .panel-title i {
+    color: #eb5900;
+}
+
+.panel-heading .panel-title a {
+    color: #eb5900;
+    text-decoration: none;
+}
+
+.panel-heading .panel-title a:hover {
+    color: #eb5900;
+    text-decoration: underline;
+}
+
+#divCabecalho, #divApontamento, #divAprovacoes {
+    border-top: 2px solid #eb5900;
+}
+
+.subtitulo {
+	color: #eb5900 !important;
+}
+
+#tblApontamentos td:first-child {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.removeApontamento {
+	color: red;
+}
+
+/* Lançado (bloqueado) */
+/* Dia completo (8h) */
+.vf-lancado-full {
+    background-color: #1e8449 !important;
+    color: #fff !important;
+}
+
+/* Parcial */
+.vf-lancado {
+    background-color: #7dcea0 !important;
+    color: #000 !important;
+}
+
+/* Dia completo (8h) */
+.vf-pendente-full {
+    background-color: #e27f0e !important;
+    color: #fff !important;
+}
+
+/* Parcial */
+.vf-pendente {
+    background-color: #ec9e45 !important;
+    color: #000 !important;
+}
+
+/* Férias */
+.vf-ferias {
+    background-color: #1e52a2 !important;
+    color: #000 !important;
+}
+
+/* Atestado */
+.vf-atestado {
+    background-color: #e74c3c !important;
+    color: #fff !important;
+}

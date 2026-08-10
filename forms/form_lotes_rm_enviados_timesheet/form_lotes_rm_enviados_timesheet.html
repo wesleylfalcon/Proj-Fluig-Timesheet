@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		
+		<!-- .js -->
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>	
+		
+		<!-- css -->
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form">
+										
+				<div class="row page-header">
+					<div class="col-md-12 divTitulo">
+						<h1 class="titulo">Lote enviado ao RM - Timesheet</h1>
+						<img src="img/logo_teste.png" class="logo" alt="Logo Cliente">
+					</div>
+				</div>
+				
+				<!-- ###### Dados controle ###### -->
+				<div class="panel-group" id="painelControle">
+	                <div class="panel-heading">
+	                    <h4 class="panel-title">
+	                    	<i class="flaticon flaticon-format-list-numbered icon-md" aria-hidden="true"></i>	                    
+	                        <a data-toggle="collapse" data-parent="#accordion" href="#divLote">
+	                            Dados lote
+	                        </a>
+	                    </h4>
+	                </div>
+	                <div id="divLote" class="panel-collapse collapse in">
+	                    <div class="panel-body">
+	                        <div class="row">                                                   
+	                            <div class="col-md-2 form-group">
+	                                <label for="idLote">ID lote</label>
+	                                <input type="text" name="idLote" id="idLote" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="dtEnvio">Data</label>
+	                                <input type="text" name="dtEnvio" id="dtEnvio" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="qtdRegistrosEnviados">Quantidade enviada</label>
+	                                <input type="text" name="qtdRegistrosEnviados" id="qtdRegistrosEnviados" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-2 form-group">
+	                                <label for="qtdRegistrosProcessados">Quantidade processada</label>
+	                                <input type="text" name="qtdRegistrosProcessados" id="qtdRegistrosProcessados" class="form-control" readonly />
+	                            </div>
+	                            
+	                            <div class="col-md-4 form-group">
+	                                <label for="statusEnvio">Status</label>
+	                                <input type="text" name="statusEnvio" id="statusEnvio" class="form-control" readonly />
+	                            </div>
+                            </div>
+                            
+                            <div class="row">  
+			                    <div class="form-group col-md-12">
+		                       		<label for="ErrosJson">Erros</label>
+									<textarea rows="4" class="form-control" name="ErrosJson" id="ErrosJson" readonly></textarea>
+								</div>
+		                    </div>
+	                    </div>
+	                </div>
+	            </div>	   
+				        
+			</form>
+		</div>
+	</body>
+</html>

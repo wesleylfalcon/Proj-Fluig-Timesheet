@@ -1,0 +1,36 @@
+.divTitulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.titulo {
+    text-align: center;
+    flex-grow: 0;
+    margin: 0;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.panel-heading .panel-title i {
+    color: #eb5900;
+}
+
+.panel-heading .panel-title a {
+    color: #eb5900;
+    text-decoration: none;
+}
+
+.panel-heading .panel-title a:hover {
+    color: #eb5900;
+    text-decoration: underline;
+}
+
+#divCredenciais {
+    border-top: 2px solid #eb5900;
+}
