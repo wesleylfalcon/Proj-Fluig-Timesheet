@@ -1,0 +1,618 @@
+/* =========================================================
+   THEME (variáveis)
+========================================================= */
+:root{
+  --ts-primary: #e85f09;
+  --ts-primary-10: rgba(232,95,9,.06);
+  --ts-primary-15: rgba(232,95,9,.08);
+  --ts-primary-20: rgba(232,95,9,.12);
+  --ts-text: #2c3e50;
+  --ts-muted: #8a8a8a;
+  --ts-border: #e6e6e6;
+  --ts-bg: #ffffff;
+  --ts-row-hover: #f9fafb;
+  --ts-shadow: 0 1px 4px rgba(232,95,9,.25);
+}
+
+/* =========================================================
+   BASE / LAYOUT
+========================================================= */
+.ts-container{
+  display:flex;
+  font-family: Arial, sans-serif;
+  width:100%;
+}
+
+.ts-main{
+  flex:1;
+  padding-left:10px;
+  min-width:0;
+}
+
+.ts-view{ display:none !important; }
+.ts-view.active{ display:block !important; }
+
+hr{
+  border:0 !important;
+  height:1px !important;
+  background: rgba(226,127,14,.44) !important;
+  margin:20px 0 !important;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.ts-sidebar{
+  width:240px;
+  background-color:var(--ts-bg);
+  border-right:1px solid var(--ts-border);
+  transition:width .25s ease;
+  overflow:hidden;
+}
+
+.ts-sidebar.collapsed{ width:64px; }
+.ts-sidebar.collapsed .ts-menu-item span{ display:none; }
+.ts-sidebar.collapsed .ts-menu-item{ justify-content:center; padding:12px 0; }
+
+.ts-sidebar-toggle{
+  width:100%;
+  height:42px;
+  border:none;
+  background:var(--ts-bg);
+  border-bottom:1px solid var(--ts-border);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ts-sidebar-toggle:hover{
+  background: var(--ts-primary-10) !important;
+}
+
+.ts-sidebar-toggle i{ transition: transform .25s; }
+.ts-sidebar.collapsed .ts-sidebar-toggle i{ transform: rotate(180deg); }
+
+.ts-nav{ padding-top:8px; }
+
+.ts-menu{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.ts-menu-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 20px;
+  cursor:pointer;
+  color:#5f6b7a;
+  font-size:14px;
+  transition: background .2s, color .2s;
+}
+
+.ts-menu-item i{ font-size:18px; }
+
+.ts-menu-item:hover{
+  background-color: var(--ts-primary-10) !important;
+  color: var(--ts-primary) !important;
+}
+
+.ts-menu-item.active{
+  background-color: var(--ts-primary-20);
+  color: var(--ts-primary);
+  font-weight:600;
+  border-left:4px solid var(--ts-primary);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.ts-header{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--ts-border);
+}
+
+.ts-header-content{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.ts-header-separator{
+  color:#c5c5c5;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.ts-product-name{
+  font-size:16px;
+  font-weight:600;
+  color:var(--ts-text);
+}
+
+.ts-user-greeting{
+  font-size:14px;
+  color:var(--ts-text);
+}
+
+.ts-date{
+  display:flex;
+  gap:5px;
+  align-items:center;
+  font-size:12px;
+  color:var(--ts-muted);
+}
+
+#ts-logo img{
+  max-width:30px;
+  width:100%;
+  height:auto;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+.ts-cards{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:16px;
+  margin-bottom:10px;
+}
+
+.ts-card{
+  background:var(--ts-bg);
+  border:1px solid var(--ts-border);
+  border-radius:4px;
+  padding:2px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:50px;
+}
+
+.ts-card-label{
+  font-size:13px;
+  color:var(--ts-muted);
+  margin-bottom:4px;
+}
+
+.ts-card-value{
+  font-size:25px;
+  font-weight:600;
+  color:var(--ts-text);
+}
+
+.ts-card-primary{ border-left:4px solid #3e47ff !important; }
+.ts-card-success{ border-left:4px solid #2ecc71 !important; }
+.ts-card-warning{ border-left:4px solid #f39c12 !important; }
+.ts-card-danger{ border-left:4px solid #e74c3c !important; }
+
+.ts-cards-aprovacao{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:16px;
+  margin-bottom:10px;
+}
+
+.ts-card-aprovacao{
+  background:var(--ts-bg);
+  border:1px solid var(--ts-border);
+  border-radius:4px;
+  padding:2px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:50px;
+}
+
+.vf-header-painel{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.vf-header-painel h3{ margin:0; }
+
+/* =========================================================
+   GRID / TABLES
+========================================================= */
+.ts-grid-body{
+  width:100%;
+  overflow-x:auto; /* mantém a tabela sempre acompanhando */
+}
+
+.ts-grid-table{
+  width:100%;
+  table-layout:fixed;
+  border-collapse:collapse;
+}
+
+.ts-grid-table th{
+  background: rgba(232,95,9,.76) !important;
+  color:#fff !important;
+  font-size:12px;
+  font-weight:600;
+  text-align:left;
+  padding:5px 10px !important;
+  border-bottom:1px solid var(--ts-border);
+}
+
+.ts-grid-table td{
+  font-size:13px;
+  color:var(--ts-text);
+  padding:10px 12px !important;
+  border-bottom:1px solid #f0f0f0;
+}
+
+.ts-grid-table th,
+.ts-grid-table td{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.ts-grid-table tbody tr{
+  transition: background .15s ease;
+  cursor:pointer;
+}
+
+.ts-grid-table tbody tr:hover{ background: var(--ts-primary-10); }
+.ts-grid-table tbody tr.selected{ background: rgba(232,95,9,.15); }
+
+/* =========================================================
+   MODALS / FORMS / COMPONENTS
+========================================================= */
+.vf-modal input[readonly]{ background-color:#f5f5f5; }
+
+#ts-horas-aprovadas,
+#ts-horas-pendentes,
+#ts-aprovacoes-pendentes{
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+#ts-horas-aprovadas:hover,
+#ts-horas-pendentes:hover,
+#ts-aprovacoes-pendentes:hover{
+  transform: scale(1.03);
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+/* Paginação */
+.vf-pagination li.disabled a{ pointer-events:none; opacity:.5; }
+
+.pagination.vf-pagination > li.active > a{
+  font-weight:bold;
+  color:#000;
+  background-color: rgba(226,127,14,.24);
+  border-color:#fff;
+}
+
+.pagination.vf-pagination > li.active > a:hover{
+  font-weight:bold;
+  color:#000;
+  background-color: rgba(226,127,14,.24);
+  border-color:#fff;
+}
+
+.vf-paginacao-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin-top:10px;
+}
+
+.vf-page-size{ display:flex; align-items:center; }
+
+#fluig-modal-cancelamento .modal-dialog{
+  width:500px;
+  max-width:95%;
+}
+
+.vf-row-delegar, .vf-aprovar-todos{
+  display:flex;
+  justify-content:center;
+}
+
+/* Modal aprovação lote */
+.vf-modal-aprovacao-lote .modal-footer{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.vf-modal-aprovacao-lote .modal-footer .btn{ min-width:120px; }
+
+/* =========================================================
+   APROVAÇÃO - TOTAL HORAS (cards lado direito)
+========================================================= */
+.vf-acoes-aprovacao{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.vf-acoes-left{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.vf-total-horas-projeto{
+  position:static !important;
+  transform:none !important;
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:stretch;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+.vf-total-pendente-card,
+.vf-total-aprovado-card{
+  min-width:200px;
+  padding:3px;
+  border-radius:10px;
+  background:transparent;
+  border:1px solid rgba(232,95,9,.5);
+  box-shadow: var(--ts-shadow);
+  text-align:center;
+  transition: all .2s ease;
+}
+
+.vf-total-pendente-header,
+.vf-total-aprovado-header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  font-size:12px;
+  font-weight:600;
+  color:#5b6670;
+  margin-bottom:1px;
+}
+
+.vf-total-pendente-value,
+.vf-total-aprovado-value{
+  font-size:20px;
+  font-weight:700;
+  line-height:1;
+}
+
+.vf-total-pendente-value{ color:#e27f0e; }
+.vf-total-aprovado-value{ color:#1e8449; }
+
+.vf-total-aprovado-card{
+  border-color: rgba(30,132,73,.45);
+  box-shadow: 0 1px 4px rgba(30,132,73,.25);
+}
+
+/* Checkbox tabela */
+.vf-checkbox-table,
+.vf-checkbox-header{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0;
+}
+
+.vf-checkbox-table label,
+.vf-checkbox-header label{
+  margin:0;
+  min-height:auto;
+  padding-left:18px;
+}
+
+.vf-checkbox-table input[type="checkbox"],
+.vf-checkbox-header input[type="checkbox"]{
+  cursor:pointer;
+}
+
+#vf-tabela-aprovacao td:first-child,
+#vf-tabela-aprovacao th:first-child{
+  vertical-align:middle;
+  text-align:center;
+  width:45px;
+}
+
+.custom-checkbox-primary input[type="checkbox"]:checked + label:before{
+  border-color:#1b9e77;
+  background-color:#1b9e77;
+}
+
+/* Modal projetos */
+.vf-modal-projetos{ padding:10px; }
+.vf-modal-header{ margin-bottom:20px; }
+.vf-modal-header h4{ margin:0; font-weight:600; color:#555; }
+
+.vf-projetos-lista{ display:flex; flex-direction:column; gap:10px; }
+
+.vf-projeto-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 16px;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  background:#fff;
+  transition: all .2s ease;
+}
+
+.vf-projeto-info{ display:flex; align-items:center; gap:10px; }
+.vf-projeto-nome{ font-size:14px; font-weight:500; color:#374151; }
+.vf-projeto-horas .label{ font-size:13px; padding:6px 12px; border-radius:20px; }
+
+/* =========================================================
+   FULLCALENDAR
+========================================================= */
+.vf-lancado-full{ background-color:#1e8449 !important; color:#fff !important; }
+.vf-lancado{ background-color:#7dcea0 !important; color:#000 !important; }
+.vf-pendente-full{ background-color:#e27f0e !important; color:#fff !important; }
+.vf-pendente{ background-color:#ec9e45 !important; color:#000 !important; }
+.vf-ferias{ background-color:#1e52a2 !important; color:#000 !important; }
+.vf-feriado{ background-color:#721b8a !important; color:#000 !important; }
+.vf-atestado-full{ background-color:#f73622 !important; color:#fff !important; }
+.vf-atestado{ background-color:#ee685a !important; color:#fff !important; }
+
+.fc-day-sat, .fc-day-sun {
+    background-color: #f5f5f5;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   SELECT2 OVERRIDES
+========================================================= */
+.select2-container--default .select2-results__option--highlighted{
+  background-color: rgba(226,127,14,.24) !important;
+  color:#e27f0e !important;
+}
+
+.select2-container--default .select2-selection--single{
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single{
+  border-color:#e27f0e;
+  box-shadow: 0 0 0 2px rgba(102,175,233,.3);
+}
+
+/* =========================================================
+	Numeração das linhas das tabelas de apontamento
+========================================================= */
+.vf-linha-numero,
+.ts-linha-numero {
+    width: 45px;
+    min-width: 45px;
+    text-align: center;
+    vertical-align: middle !important;
+    font-weight: 600;
+    color: #555;
+}
+
+#vf-table-horas th:first-child,
+#ts-apontamento-horas th:first-child {
+    width: 45px;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* =========================================================
+   RELATÓRIOS
+========================================================= */
+.ts-relatorio .select2-container {
+  width: 100% !important;
+}
+
+.ts-relatorio .ts-grid-table th {
+  vertical-align: middle;
+}
+
+.ts-rel-total-row {
+  font-weight: 700;
+  background: #f7f7f7;
+}
+
+.ts-relatorio #vf-tabela-relatorio td,
+.ts-relatorio #vf-tabela-relatorio th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.ts-dia-jornada-bloqueada {
+    background-color: #f5f5f5 !important;
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+#panelRelatorioInfoUsuarios .ts-info-usuario-detalhe > td {
+    background: #fffaf2 !important;
+    padding: 14px 18px !important;
+    border-top: 0 !important;
+}
+
+#panelRelatorioInfoUsuarios .ts-info-detalhe-wrapper {
+    border: 1px solid #f2d7a6 !important;
+    background: #fffdf8 !important;
+    border-radius: 6px !important;
+    padding: 14px !important;
+    box-shadow: inset 3px 0 0 #f2b35c !important;
+}
+
+#panelRelatorioInfoUsuarios .ts-info-detalhe-wrapper strong {
+    display: block;
+    font-size: 13px;
+    color: #9b6400;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Cabeçalho da subtabela: laranja claro, diferente da tabela principal */
+#panelRelatorioInfoUsuarios .ts-info-detalhe-table thead tr th,
+#panelRelatorioInfoUsuarios table.ts-info-detalhe-table thead tr th,
+#panelRelatorioInfoUsuarios .ts-info-detalhe-wrapper .ts-info-detalhe-table thead tr th {
+    background-color: #fbe3bf !important;
+    background: #fbe3bf !important;
+    color: #8a5a00 !important;
+    border-color: #f3c98f !important;
+    border-bottom: 1px solid #f3c98f !important;
+    padding: 8px 10px !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+}
+
+/* Células da subtabela */
+#panelRelatorioInfoUsuarios .ts-info-detalhe-table tbody tr td,
+#panelRelatorioInfoUsuarios table.ts-info-detalhe-table tbody tr td {
+    background: #fff !important;
+    color: #2c3e50 !important;
+    border-color: #f6e1bf !important;
+    border-bottom: 1px solid #f6e1bf !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    vertical-align: middle !important;
+}
+
+/* Remove hover/laranja da tabela principal dentro da subtabela */
+#panelRelatorioInfoUsuarios .ts-info-detalhe-table tbody tr:hover td {
+    background: #fff8ec !important;
+}
+
+/* Badges da subtabela */
+#panelRelatorioInfoUsuarios .ts-info-horas-ausencia {
+    display: inline-block;
+    min-width: 55px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 2px 8px;
+}
+
+#panelRelatorioInfoUsuarios .ts-info-horas-apontadas {
+    display: inline-block;
+    min-width: 55px;
+    text-align: center;
+    font-weight: 600;
+    color: #31708f;
+    background: #d9edf7;
+    border: 1px solid #bce8f1;
+    border-radius: 10px;
+    padding: 2px 8px;
+}
